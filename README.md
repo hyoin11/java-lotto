@@ -66,3 +66,19 @@
 - Test
   - [x] public 한 함수들의 테스트 케이스 작성하기
   - [x] 실패하는 테스트는 없도록.. 수정하기
+
+### 수정사항
+- [ ] 컨트롤러에서 비즈니스 로직 제거 (lottos.match() 와 같은 부분)
+- [x] 인스턴스 변수의 타입이 컬렉션 타입인 경우 필드 초기화 해주기
+- [x] LottoNumber 객체의 역할 부여하기
+- [x] LottoNumbers Integer대신 LottoNumber 객체 사용해보기
+
+### 4단계 수정사항
+- [x] 로또 정보를 받아 service 단에서 처리해 lottos를 받아오도록 수정해보기(service 계층 활용해보기). 컨트롤러 단에서 비즈니스 로직을 서비스 단으로 이동
+- [x] Lotto HashSet은 순서가 없음. 로또 번호는 중복이 없지만 순서는 있음.
+- [x] Lotto SIZE 보다는 LOTTO_LIMIT_SIZE 처럼 좀 더 명시적으로 이름을 짓기
+- [x] Lotto matchCount() otherLotto가 null인 경우 NPE가 발생할 수 있음
+- [x] Lotto sort -> LottoNumber가 Comparable을 구현하도록 하면 익명 클래스를 만들 필요가 없음
+- [x] 돈과 수동 로또의 개수에 관한 검증 필요
+- [x] LottoNumber number가 MIN과 MAX사이의 값인지만 검사한 뒤 return 해주기
+- [x] LottoNumbers randomList를 전략패턴으로 사용해보기
