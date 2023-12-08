@@ -27,6 +27,8 @@ public class LottoResultView {
         for (LottoPrize prize : LottoPrize.values()) {
             showResult(result.countingPrize(prize), prize);
         }
+
+        showRate(result.getRate());
     }
 
     private static void showResult(int count, LottoPrize prize) {
@@ -43,7 +45,7 @@ public class LottoResultView {
         System.out.println(BUILDER.toString());
     }
 
-    public static void shotRate(double rate) {
+    private static void showRate(double rate) {
         System.out.println(String.format(NOTICE_LOTTO_RATE, rate, getRateInfo(rate)));
     }
 

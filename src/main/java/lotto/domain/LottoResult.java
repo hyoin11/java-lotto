@@ -8,8 +8,15 @@ public class LottoResult implements Rate{
 
     private List<LottoPrize> result;
 
+    private double rate;
+
     public LottoResult(List<LottoPrize> result) {
         this.result = result;
+        this.rate = 0;
+    }
+
+    public double getRate() {
+        return rate;
     }
 
     public int countingPrize(LottoPrize findPrize) {
@@ -24,13 +31,9 @@ public class LottoResult implements Rate{
                 .sum();
     }
 
-    public double getRate(LottoBuyInfo money) {
-        return getRate(money.getMoney());
-    }
-
     @Override
-    public double getRate(int money) {
+    public void calculateRate(int money) {
         double totalPrize = totalPrize();
-        return Math.round(totalPrize / money * PERCENT_FOR_RATE) / PERCENT_FOR_RATE;
+        this.rate = Math.round(totalPrize / money * PERCENT_FOR_RATE) / PERCENT_FOR_RATE;
     }
 }

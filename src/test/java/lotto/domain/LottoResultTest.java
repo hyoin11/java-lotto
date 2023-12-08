@@ -86,7 +86,7 @@ class LottoResultTest {
         assertThat(result.totalPrize()).isEqualTo(31500000);
     }
 
-    @DisplayName("구매금액을 전달하면 수익률을 반환한다")
+    @DisplayName("구매금액을 전달하면 수익률을 계산한다.")
     @Test
     void rateTest() {
         LottoResult result = new LottoResult(List.of(
@@ -94,8 +94,9 @@ class LottoResultTest {
                 LottoPrize.from(0),
                 LottoPrize.from(3)
         ));
+        result.calculateRate(3000);
 
-        assertThat(result.getRate(new LottoBuyInfo(3000, 1))).isEqualTo(1.67);
+        assertThat(result.getRate()).isEqualTo(1.67);
     }
 
     @DisplayName("구매금액을 전달하면 수익률을 반환한다.(보너스추가)")
@@ -106,7 +107,8 @@ class LottoResultTest {
                 LottoPrize.find(0, true),
                 LottoPrize.find(3, true)
         ));
+        result.calculateRate(3000);
 
-        assertThat(result.getRate(new LottoBuyInfo(3000, 1))).isEqualTo(501.67);
+        assertThat(result.getRate()).isEqualTo(501.67);
     }
 }
