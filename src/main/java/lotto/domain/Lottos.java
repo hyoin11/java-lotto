@@ -1,6 +1,5 @@
 package lotto.domain;
 
-import lotto.generator.LottoNumberGenerator;
 import lotto.generator.RandomLottNumberGenerator;
 
 import java.util.ArrayList;
@@ -31,9 +30,8 @@ public class Lottos {
 
     public static Lottos from(int count) {
         List<Lotto> newLottos = new ArrayList<>();
-        LottoNumberGenerator lottoNumberGenerator = new RandomLottNumberGenerator();
         for (int i = 0; i < count; i++) {
-            newLottos.add(Lotto.from(lottoNumberGenerator.getLottoNumberList()));
+            newLottos.add(Lotto.from(RandomLottNumberGenerator.getLottoNumbers()));
         }
         return new Lottos(newLottos);
     }

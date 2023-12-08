@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class RandomLottNumberGenerator implements LottoNumberGenerator{
+public class RandomLottNumberGenerator {
 
     private static final int MIN_SIZE = 0;
     private static final int MAX_SIZE = 6;
@@ -19,8 +19,7 @@ public class RandomLottNumberGenerator implements LottoNumberGenerator{
         }
     }
 
-    @Override
-    public List<LottoNumber> getLottoNumberList() {
+    public static List<LottoNumber> getLottoNumbers() {
         Collections.shuffle(NUMBERS);
         List<LottoNumber> newNumbers = NUMBERS.subList(MIN_SIZE, MAX_SIZE);
         Collections.sort(newNumbers);
